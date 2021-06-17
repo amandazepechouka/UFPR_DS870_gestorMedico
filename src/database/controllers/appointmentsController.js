@@ -77,7 +77,7 @@ module.exports = {
         const deletedAppointment = await Appointment.destroy({
             where : { id: appointmentId},
         }).catch(async (error) => {
-            const appointmentHasPhys =  await Appointment.findOne({
+            const appointmentHasPhys =  await Physician.findOne({
                 where: {physicianId},
             }).catch((error) => {
                 res.status(500).json({ msg: "Falha de conexão."});
@@ -85,7 +85,7 @@ module.exports = {
             if (appointmentHasPhys)
                 return res.status(403).json({ msg: "Consulta possui médico em seu nome." });
 
-            const appointmentHasPatie =  await Appointment.findOne({
+            const appointmentHasPatie =  await Patient.findOne({
                 where: {patientId},
             }).catch((error) => {
                 res.status(500).json({ msg: "Falha de conexão."});
