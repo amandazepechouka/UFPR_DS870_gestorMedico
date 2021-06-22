@@ -7,4 +7,6 @@ physiciansRouter.get("/listAllPhysician", physiciansController.listAllPhysician)
 physiciansRouter.get("/updatePhysician", physiciansController.updatePhysician);
 physiciansRouter.get("/deletePhysician", physiciansController.deletePhysician);
 
+physiciansRouter.post("/authenticationPhysician", physiciansController.authenticationPhysician);
+
 module.exports = physiciansRouter;
